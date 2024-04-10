@@ -9,6 +9,6 @@ O projeto foi desenvolvido com as melhores práticas do Angular, utilizando:
 Serviços injetáveis: para comunicação com a API RESTful do Back-end;
 Tecnologias utilizadas:
 
-Angular 16+
-TypeScript
+Angular 16+ |
+TypeScript |
 Bootstrap
