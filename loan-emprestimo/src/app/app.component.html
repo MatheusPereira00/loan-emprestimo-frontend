@@ -1,4 +1,4 @@
-<div class="pos-f-t">
+<!-- <div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h5 class="text-white h4">Conteúdo expandido</h5>
@@ -20,8 +20,16 @@
   </nav>
 </div>
 
-<div style="display: flex">
-  <div style="margin: 10rem; width: 40rem">
+<div class="login-container" style="margin: 8rem">
+  <input type="login" placeholder="Login" [(ngModel)]="login" />
+  <br /><br />
+  <input type="senha" placeholder="Senha" [(ngModel)]="senha" />
+  <br /><br />
+  <button (click)="loginSent()">Entrar</button>
+</div>
+
+<div style="display: flex" *ngIf="isLoggingIn == true">
+  <div style="margin: 8rem; width: 40rem">
     <form [formGroup]="sentAvaliation">
       <div class="form-group" style="margin-bottom: 2rem">
         <label style="padding-bottom: 1rem">AGE</label>
@@ -86,5 +94,8 @@
       Taxa de juros: {{ emprestimo.interestRate }}%
     </div>
   </div>
-</div>
+</div> -->
+
 <router-outlet></router-outlet>
+<!-- <app-login />
+<app-home /> -->
