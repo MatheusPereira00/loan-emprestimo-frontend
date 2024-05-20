@@ -1,10 +1,33 @@
-<p>login works!</p>
+<p-toolbar>Mr Matheus</p-toolbar>
 
 <div class="login-container" style="margin: 8rem">
-  <input type="login" placeholder="Login" [(ngModel)]="login" />
-  <br /><br />
-  <input type="senha" placeholder="Senha" [(ngModel)]="senha" />
-  <br /><br />
-  <button (click)="loginSent()">Entrar</button>
-</div>
+  <p-floatLabel>
+    <input
+      id="login"
+      type="email"
+      pInputText
+      [(ngModel)]="login"
+      placeholder="email"
+    />
+    <label for="login"></label>
+  </p-floatLabel>
+  <br />
 
+  <p-floatLabel>
+    <input
+      id="senha"
+      type="password"
+      pInputText
+      [(ngModel)]="senha"
+      placeholder="senha"
+    />
+    <label for="senha"></label>
+  </p-floatLabel>
+  <br />
+
+  <p-button label="login" severity="success" (click)="loginSent()" />
+  <br />
+  <a href="" [routerLink]="['/register']" routerLinkActive="router-link-active"
+    >register</a
+  >
+</div>

@@ -6,9 +6,6 @@ import { catchError, tap } from "rxjs/operators";
 import { AuthService } from './auth.service';
 import { ResponseType } from '../types/ResponseType';
 
-
-import { DecodedTokenComplete } from '../types/TokenType';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +17,6 @@ export class SentService {
     responseType: 'text' as 'json',
   };
 
-
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   sent(avaliacao: any) {
@@ -31,8 +27,6 @@ export class SentService {
       return throwError(error);
     }));
   }
-
-
 
   login(login: string, senha: string): Observable<ResponseType> {
     const body = { login, senha };
@@ -48,8 +42,6 @@ export class SentService {
           console.log(token)
 
         }),
-
-      
 
         catchError(error => {
           if (error.status === 500) {

@@ -16,7 +16,6 @@ export class LoginComponent {
   senha: any = '12345';
   isLoggingIn = false;
 
-
   constructor(private router: Router) { }
 
   public loginSent() {
@@ -27,7 +26,7 @@ export class LoginComponent {
       .subscribe(
         data => {
           if (this.isLoggingIn == true) {
-            this.router.navigate(['produtos'])
+            this.router.navigate(['products'])
           } else {
 
             console.log('error')

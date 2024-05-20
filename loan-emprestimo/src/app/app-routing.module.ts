@@ -1,22 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { guardGuard } from './guard.guard';
-import { ProdutoComponent } from './produto/produto.component';
-import { AdmComponent } from './adm/adm.component';
+import { guardGuard } from './guards/guard.guard';
+import { ProdutoComponent } from './products/produto.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {
-    path: '', component: LoginComponent
-  }, {
-    path: 'home', component: HomeComponent, canActivate: [guardGuard]
-  }, {
-    path: 'produtos', component: ProdutoComponent, canActivate: [guardGuard]
-  }, {
-    path: 'adm', component: AdmComponent
-  }
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'products', component: ProdutoComponent, canActivate: [guardGuard] }
 ];
 
 @NgModule({
