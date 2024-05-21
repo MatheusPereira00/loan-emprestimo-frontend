@@ -50,7 +50,7 @@ export class SentService {
 
         catchError(error => {
           if (error.status === 500) {
-            console.error('Invalid credentials or request format:', error.message); 
+            console.error('Invalid credentials or request format:', error.message);
             return throwError(() => new Error('Invalid credentials or request format. Please check your login details.'));
           } else {
             // Handle other potential errors here (e.g., network errors, server errors)

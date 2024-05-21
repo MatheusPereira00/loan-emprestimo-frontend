@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class LocalStorage {
 
   constructor(private http: HttpClient) { }
-  
+
   setToken(token: string) {
     localStorage.setItem('authToken', token);
     console.log("aqui foi armazenado")

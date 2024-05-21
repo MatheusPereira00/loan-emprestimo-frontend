@@ -11,8 +11,8 @@ export class ProdutoComponent implements OnInit {
   public Localstorage = inject(LocalStorage);
 
   public login = this.Localstorage.getLogin();
-  
+
   ngOnInit(): void {
-      this.Localstorage.getLogin();
+    this.Localstorage.getLogin();
   }
 }
