@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-import { AuthService } from './auth.service';
+import { LocalStorage } from './localstorage.service';
 import { ResponseType } from '../types/ResponseType';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class SentService {
     responseType: 'text' as 'json',
   };
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private Localstorage: LocalStorage) { }
 
   sent(avaliacao: any) {
     return this.http.post(`${environment.api}`, avaliacao).pipe(catchError((error: HttpErrorResponse) => {
@@ -35,10 +35,12 @@ export class SentService {
     return this.http.post<ResponseType>(this.apiSecurity, body, { headers })
       .pipe(
         tap(response => {
-          const token = response.token;
-          this.authService.setToken(token);
 
+          const token = response.token;
+          this.Localstorage.setToken(token);
           localStorage.setItem('authToken', token);
+
+      
           console.log(token)
 
         }),

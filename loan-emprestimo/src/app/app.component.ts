@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SentService } from './service/sent.service';
-import { AuthService } from './service/auth.service';
+import { LocalStorage } from './service/localstorage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { AuthService } from './service/auth.service';
 })
 export class AppComponent implements OnInit {
   public service = inject(SentService);
-  public authService = inject(AuthService);
+  public Localstorage = inject(LocalStorage);
 
   public respostaBack: any;
 
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getToken();
+    this.Localstorage.getToken();
   }
 
   login: any = 'Matheus@email.com';
@@ -58,12 +58,12 @@ export class AppComponent implements OnInit {
           const token = data.token;// Supondo que a resposta contenha um campo 'token'
 
           if (this.isLoggingIn === true) {
-            this.authService.setToken(data.token);
+            this.Localstorage.setToken(data.token);
           }
           if (this.isLoggingIn === true) {
-            this.authService.setToken(token);
+            this.Localstorage.setToken(token);
           }
-          // Armazena o token no AuthService
+          // Armazena o token no Localstorage
           console.log('Login successful!');
           console.log('entrou component')
           // Redirecionar para a página principal

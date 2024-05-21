@@ -4,12 +4,13 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class LocalStorage {
 
   constructor(private http: HttpClient) { }
   
   setToken(token: string) {
     localStorage.setItem('authToken', token);
+    console.log("aqui foi armazenado")
   }
 
   getToken(): string | null {
@@ -23,6 +24,5 @@ export class AuthService {
   isLoggedIn(): boolean {
     return this.getToken() !== null;
   }
-
 
 }
