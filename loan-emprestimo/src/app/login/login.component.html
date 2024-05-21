@@ -1,6 +1,15 @@
 <p-toolbar>Mr Matheus</p-toolbar>
 
 <div class="login-container" style="margin: 8rem">
+  <div *ngIf="isLoggingIn">
+    <p-button
+      label="products"
+      severity="success"
+      [routerLink]="['/products']"
+    />
+  </div>
+  <br />
+  <br />
   <p-floatLabel>
     <input
       id="login"
@@ -26,8 +35,10 @@
   <br />
 
   <p-button label="login" severity="success" (click)="loginSent()" />
-  <br />
-  <a href="" [routerLink]="['/register']" routerLinkActive="router-link-active"
-    >register</a
-  >
+
+  <p-button
+    label="register"
+    severity="secondary"
+    [routerLink]="['/register']"
+  />
 </div>

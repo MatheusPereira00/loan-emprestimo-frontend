@@ -5,6 +5,7 @@ import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { LocalStorage } from './localstorage.service';
 import { ResponseType } from '../types/ResponseType';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class SentService {
     responseType: 'text' as 'json',
   };
 
-  constructor(private http: HttpClient, private Localstorage: LocalStorage) { }
+  constructor(private http: HttpClient, private Localstorage: LocalStorage, private router: Router) { }
 
   sent(avaliacao: any) {
     return this.http.post(`${environment.api}`, avaliacao).pipe(catchError((error: HttpErrorResponse) => {
@@ -58,8 +59,16 @@ export class SentService {
           }
         })
       );
-
   }
+
+
+  signout() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('login');
+    localStorage.removeItem('setIsLoggingIn')
+    this.router.navigate(['']);
+  }
+
 
   // public decodeToken(token: string): DecodedTokenComplete {
   //   const decodedToken: DecodedTokenComplete = {

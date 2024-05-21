@@ -34,4 +34,12 @@ export class LocalStorage {
     return this.getToken() !== null;
   }
 
+  setIsLoggingIn(setIsLoggingIn: any): any {
+    localStorage.setItem('setIsLoggingIn', setIsLoggingIn);
+  }
+
+  getIsLoggingIn(): string | null {
+    return localStorage.getItem('setIsLoggingIn');
+  }
+
 }

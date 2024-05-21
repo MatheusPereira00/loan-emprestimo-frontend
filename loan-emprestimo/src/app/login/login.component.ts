@@ -19,13 +19,16 @@ export class LoginComponent {
   constructor(private router: Router) { }
 
   public loginSent() {
-    this.isLoggingIn = true;
+    const isLoggingIn = this.isLoggingIn = true;
 
     this.service.login(this.login, this.senha)
       .subscribe(
         data => {
           if (this.isLoggingIn == true) {
-            this.router.navigate(['products'])
+            // this.router.navigate(['products'])
+            this.Localstorage.setIsLoggingIn(isLoggingIn);
+            this.Localstorage.getIsLoggingIn();
+            alert("login feito com sucesso")
           } else {
             console.log('error')
           }
