@@ -40,7 +40,10 @@ export class SentService {
           this.Localstorage.setToken(token);
           localStorage.setItem('authToken', token);
 
-      
+          const login = response.login;
+          this.Localstorage.setLogin(login);
+          localStorage.setItem('login', login);
+
           console.log(token)
 
         }),

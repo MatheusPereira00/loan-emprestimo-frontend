@@ -13,6 +13,15 @@ export class LocalStorage {
     console.log("aqui foi armazenado")
   }
 
+  setLogin(login: string) {
+    localStorage.setItem('login', login);
+    console.log(login)
+  }
+
+  getLogin(): string | null {
+    return localStorage.getItem('login');
+  }
+
   getToken(): string | null {
     return localStorage.getItem('authToken');
   }
